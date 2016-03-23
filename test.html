@@ -1,0 +1,80 @@
+
+
+<head>
+<style type='text/css'>
+    [id^=_] {
+display: none;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+ 
+    <script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#myForm').ajaxForm(function() { 
+                alert("Thank you for your comment!"); 
+            }); 
+        }); 
+    </script> 
+
+
+</head>
+<body>
+
+<form id="myForm" action="comment.php" method="post"> 
+    Name: <input type="text" name="name" /> 
+    Comment: <textarea name="comment"></textarea> 
+    <input type="submit" value="Submit Comment" /> 
+</form>
+
+
+
+
+
+
+   <div class='post'>
+                        
+                            
+
+<p id="cbp_hello">This is my Hello World blog post of sorts. It&#8217;s my introduction to the world of blogging, the blog post likely only read by my family and a few techie friends. It&#8217;s the post in which I make an unrealistic commitment to blog frequently, which I later fail to live up to. And it&#8217;s the post in which I introduce a new form of blogging, <u>Collapsible Blogging</u>. Here&#8217;s the tl;dr.</p>
+
+<p id="_cbp_hello">Hello World!</p>
+
+</body>
+
+<script type="text/javascript">
+function swap(e1, e2) {
+    e1.fadeOut(400).promise().done(function() {
+        e2.fadeIn(400);
+    });
+}
+function register_swap(e1, e2) {
+    $(e1).click(function(e) {
+        var srcEl = e.srcElement? e.srcElement : e.target;
+        if (srcEl.tagName.toUpperCase() == "A") return;
+        swap($(e1), $(e2));
+    });
+}
+function register_pair(e1, e2) {
+    register_swap(e1, e2);
+    register_swap(e2, e1);
+}
+function addBorder(e1, style) {
+    $(e1).css("border-left", style + " 1px lightgray");
+    $(e1).css("padding-left", "5px");
+}
+var paragraphs = $('.post *');
+for (var cv = 0; cv < paragraphs.length; cv++) {
+    var keyId = paragraphs[cv].id;
+    if (keyId.charAt(0) == "_") {
+        register_pair('#'+keyId, '#'+keyId.substr(1));
+        addBorder('#'+keyId, "dashed");
+        addBorder('#'+keyId.substr(1), "solid");
+    }
+}
+</script>
+
+</html>

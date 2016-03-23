@@ -1,0 +1,12 @@
+for everything:
+-script src
+-get rid of second table
+-div for links
+-div for main
+-body onload
+
+-Links -- should link to all engineering departments.  that'd be cool.
+-Home page
+-Need pictures
+-About us
+
